@@ -17,10 +17,6 @@ function App() {
           <Route path="/recipes" exact component={Recipes} />
           <Route path="/recipes/:id" component={SingleRecipe} />
           <Route component={Default} />
-          <Home />
-          <Recipes />
-          <SingleRecipe />
-          <Default />
         </Switch>
       </main>
     </Router>
