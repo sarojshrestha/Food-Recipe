@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
+import RecipeList from '../component/RecipeList';
+import Search from '../component/Search';
+import { recipeData } from '../data/tempList';
 
 class Recipes extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
+
+
+    state = {
+        recipes: recipeData,
+        search: ''
+
     }
+    handleChange = (e) => {
+        console.log('handlechange', e);
+
+        this.setState({
+            search: e.target.value
+        });
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     render() {
-        return (<h4>
-            Hello from Recipes page
-        </h4>);
+        return (
+            <React.Fragment>
+                <Search search={this.state.search} handleChange={this.handleChange} />
+                <RecipeList recipes={this.state.recipes} />
+            </React.Fragment>);
     }
 }
 
